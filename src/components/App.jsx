@@ -20,11 +20,11 @@ const GuestLayout = () => {
 const AppRoute = () => {
   return (
     <Routes>
-      <Route path="/" element={<GuestLayout />}>
-        <Route path="login" element={<Login />} />
+      <Route path="/" element={<GuestLayout />} />
+      <Route path="login" element={<Login />} />
 
-        <Route index element={<div>Default Page Content</div>} />
-      </Route>
+      {/* Optional index route if no nested routes match */}
+      <Route index element={<div>Default Page Content</div>} />
     </Routes>
   );
 };
