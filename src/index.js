@@ -6,7 +6,8 @@ import App from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/repo-name">
+    {/* <BrowserRouter basename="/repo-name"> */}
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
