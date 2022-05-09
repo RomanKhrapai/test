@@ -1,41 +1,41 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  Outlet,
-} from 'react-router-dom';
+import React from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
+import About from './About';
+import Home from './Home';
+import Contact from './Contact';
 
-const Login = () => <h1>Login</h1>;
-
-const GuestLayout = () => {
-  return (
-    <div>
-      <h1>This is the Guest Layout Page</h1>
-      <Outlet />
-    </div>
-  );
-};
-
-const AppRoute = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<GuestLayout />} />
-      <Route path="login" element={<Login />} />
-
-      {/* Optional index route if no nested routes match */}
-      <Route index element={<div>Default Page Content</div>} />
-    </Routes>
-  );
-};
-
-export default function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Link to="/">Home</Link> <Link to="/login">Go to login</Link>
-        <AppRoute />
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <div>
+          <nav
+            style={{
+              borderBottom: 'solid 1px',
+              paddingBottom: '1rem',
+            }}
+          >
+            <ul id="navigation">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+        </Routes>
       </div>
-    </Router>
-  );
+    );
+  }
 }
+
+export default App;
